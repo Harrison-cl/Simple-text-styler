@@ -118,11 +118,45 @@ h2 {
     font-size: 1.1em;
 }
 
-.output-row { /* Use flexbox for output divs and buttons */
+/* Old (can be removed or kept for single-output rows) */
+/*
+.output-row {
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    gap: 10px; /* Space between output displays and buttons */
-    align-items: center; /* Vertically align items */
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+*/
+
+.output-grid-container {
+    display: grid;
+    /* Two columns: one for HTML output, one for Markdown output */
+    grid-template-columns: 1fr 1fr;
+    gap: 10px; /* Space between grid items */
+    align-items: center; /* Vertically align items in their grid cells */
+    /* Optionally, set a minimum width for the grid to switch to single column */
+    /* min-width: 600px; */ /* If you want to force single column earlier */
+}
+
+/* Ensure output displays span one column in the grid */
+.output-grid-container .output-display {
+    grid-column: 1 / span 1; /* HTML output in the first column */
+}
+
+.output-grid-container .output-markdown {
+    grid-column: 2 / span 1; /* Markdown output in the second column */
+}
+
+/* Position copy buttons relative to their output divs */
+.output-grid-container button.copy-button {
+    /* HTML copy button */
+    &:nth-of-type(1) { /* First button in the container */
+        grid-column: 1 / span 1; /* Aligns with the first output div */
+    }
+    /* Markdown copy button */
+    &:nth-of-type(2) { /* Second button in the container */
+        grid-column: 2 / span 1; /* Aligns with the second output div */
+    }
 }
 
 .output-display,
@@ -211,5 +245,29 @@ button.copy-button:hover {
 
     h1 {
         font-size: 1.5em;
+    }
+}
+
+/* Responsive adjustments for the new grid */
+@media (max-width: 768px) {
+    /* keep to stack everything on smaller screens */
+    .output-grid-container {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    }
+
+    /* Reset button and output span for stacked layout */
+    .output-grid-container .output-display,
+    .output-grid-container .output-markdown,
+    .output-grid-container button.copy-button {
+        grid-column: 1 / -1; /* Make them span full width */
+    }
+
+    .output-grid-container .output-display,
+    .output-grid-container .output-markdown {
+        margin-bottom: 10px; /* Add space between stacked outputs */
+    }
+
+    .output-grid-container button.copy-button {
+        margin-bottom: 5px; /* Space between stacked buttons */
     }
 }
