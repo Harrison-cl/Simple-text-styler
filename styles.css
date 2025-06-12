@@ -1,6 +1,215 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* base styles for the application */
+:root {
+    --primary-color: #4a6fa5;
+    --secondary-color: #166088;
+    --accent-color: #4fc1e3;
+    --light-color: #f5f9fc;
+    --dark-color: #2c3e50;
+    --success-color: #27ae60;
+    --warning-color: #e67e22;
+    --danger-color: #e74c3c;
+    --border-radius: 5px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --input-bg: #ffffff; 
+    --border-color: #ddd;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: #f0f2f5; /* Consistent background */
+    display: flex; /* Use flexbox for basic page layout */
+    flex-direction: column;
+    min-height: 100vh; /* Ensure footer stays at bottom */
+}
+
+/* Header and Footer */
+header { 
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 0.75rem; /* Slightly smaller padding for footer */
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+/* Main Application Container */
+#app { 
+    max-width: 900px; /* Slightly wider for the two-column layout */
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--input-bg); /* White background for the app area */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    flex-grow: 1; /* Allows app container to fill available space */
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 2.2em;
+}
+
+h2 {
+    color: var(--secondary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.5em;
+    border-bottom: 1px solid var(--border-color); /* Subtle separator */
+    padding-bottom: 0.5rem;
+}
+
+/* Input Textarea */
+#inputText {
+    width: 100%;
+    min-height: 150px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    resize: vertical; /* Allow vertical resizing */
+    margin-bottom: 2rem;
+    background-color: var(--input-bg);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
+    transition: border-color 0.3s;
+}
+
+#inputText:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08), 0 0 0 2px rgba(79, 193, 227, 0.2); /* Focus ring */
+}
+
+
+/* Output Sections */
+.output-section {
+    margin-top: 2rem;
+}
+
+.output-item {
+    margin-bottom: 1.5rem; /* Space between each formatting type */
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--light-color); /* Light background for each item */
+    box-shadow: var(--box-shadow);
+}
+
+.output-item label {
+    font-weight: bold;
+    color: var(--dark-color);
+    margin-bottom: 0.8rem;
+    display: block; /* Ensures label takes full width */
+    font-size: 1.1em;
+}
+
+.output-row { /* Use flexbox for output divs and buttons */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 10px; /* Space between output displays and buttons */
+    align-items: center; /* Vertically align items */
+}
+
+.output-display,
+.output-markdown {
+    flex: 1; /* Allow these divs to grow and shrink */
+    min-width: 250px; /* Minimum width before wrapping */
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    min-height: 45px; /* Minimum height for empty outputs */
+    background-color: var(--input-bg);
+    border-radius: var(--border-radius);
+    overflow-x: auto; /* Allow horizontal scrolling for long lines */
+    word-wrap: break-word; /* Break long words */
+    white-space: pre-wrap; /* Preserve whitespace and wrap text */
+    font-size: 0.95rem; /* Slightly smaller text for outputs */
+    color: var(--dark-color);
+}
+
+/* Specific styling for markdown output to differentiate */
+.output-markdown {
+    background-color: #e9eff4; /* Slightly different background for Markdown */
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; /* Monospace font */
+    color: var(--secondary-color);
+    min-width: 200px; /* Markdown might be slightly less wide as code */
+}
+
+/* Buttons */
+button.copy-button {
+    padding: 0.75rem 1rem; /* Slightly larger padding for copy buttons */
+    background-color: var(--accent-color); /* Use accent color for copy buttons */
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+button.copy-button:hover {
+    background-color: #37b0d8; /* Slightly darker accent on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #app {
+        margin: 1rem auto;
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    .output-item {
+        padding: 0.8rem;
+    }
+
+    /* Make output displays stack on small screens if they can't fit side-by-side */
+    .output-row {
+        flex-direction: column;
+        align-items: stretch; /* Stretch items to fill width */
+    }
+
+    .output-display,
+    .output-markdown {
+        min-width: 100%; /* Take full width on small screens */
+        margin-bottom: 10px; /* Add space between stacked outputs */
+    }
+
+    button.copy-button {
+        width: 100%; /* Make buttons full width when stacked */
+        margin-bottom: 5px; /* Space between stacked buttons */
+    }
+}
+
+@media (max-width: 480px) {
+    #app {
+        margin: 0.5rem auto;
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+}
