@@ -13,17 +13,48 @@
         <textarea id="inputText" placeholder="Type your text here..."></textarea>
         <div id="output">
             <h2>Styled Text</h2>
-            <div id="styledText">
-                <!-- Styled text will appear here -->
-                <textarea id="outputBold" placeholder="Bold text will appear here..." readonly></textarea>
-                <textarea id="outputItalic" placeholder="Italic text will appear here..." readonly></textarea>
-                <textarea id="outputUnderline" placeholder="Underlined text will appear here..." readonly></textarea>
-                <textarea id="outputStrikethrough" placeholder="Strikethrough text will appear here..." readonly></textarea>
-                <textarea id="outputHighlight" placeholder="Highlighted text will appear here..." readonly></textarea>
-                <textarea id="outputCode" placeholder="Code-styled text will appear here..." readonly></textarea>
-                <textarea id="outputSuperscript" placeholder="Superscript text will appear here..." readonly></textarea>
-                <textarea id="outputSubscript" placeholder="Subscript text will appear here..." readonly></textarea>
-            </div>
+             <div class="output-section">
+        <h2>Formatted Outputs</h2>
+
+        <div class="output-item">
+            <label for="outputBold">Bold:</label>
+            <div id="outputBold" class="output-display"></div>
+        </div>
+
+        <div class="output-item">
+            <label for="outputItalic">Italic:</label>
+            <div id="outputItalic" class="output-display"></div>
+        </div>
+        
+        <div class="output-item">
+            <label for="outputUnderline">Underline:</label>
+            <div id="outputUnderline" class="output-display"></div>
+        </div>
+
+        <div class="output-item">
+            <label for="outputStrikethrough">Strikethrough:</label>
+            <div id="outputStrikethrough" class="output-display"></div>
+        </div>
+
+        <div class="output-item">
+            <label for="outputHighlight">Highlight:</label>
+            <div id="outputHighlight" class="output-display"></div>
+        </div>
+
+        <div class="output-item">
+            <label for="outputCode">Code:</label>
+            <div id="outputCode" class="output-display"></div>
+        </div>
+
+        <div class="output-item">
+            <label for="outputSuperscript">Superscript:</label>
+            <div id="outputSuperscript" class="output-display"></div>
+        </div>
+
+        <div class="output-item">
+            <label for="outputSubscript">Subscript:</label>
+            <div id="outputSubscript" class="output-display"></div>
+        </div>
         </div>
     </div>
     <script src="script.js"></script>

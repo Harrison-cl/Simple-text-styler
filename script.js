@@ -45,13 +45,13 @@ function applySubscript(text) {
 
 
 inputText.addEventListener("input", () => {
-    styledText.innerHTML = inputText.value;
-    document.getElementById("outputBold").value = applyBold(inputText.value);
-    document.getElementById("outputItalic").value = applyItalic(inputText.value);
-    document.getElementById("outputUnderline").value = applyUnderline(inputText.value);
-    document.getElementById("outputStrikethrough").value = applyStrikethrough(inputText.value);
-    document.getElementById("outputHighlight").value = applyHighlight(inputText.value);
-    document.getElementById("outputCode").value = applyCode(inputText.value);
-    document.getElementById("outputSuperscript").value = applySuperscript(inputText.value);
-    document.getElementById("outputSubscript").value = applySubscript(inputText.value);
+    const inputValue = inputText.value;
+     document.getElementById("outputBold").innerHTML = applyBold(inputValue);
+    document.getElementById("outputItalic").innerHTML = applyItalic(inputValue);
+    document.getElementById("outputUnderline").innerHTML = applyUnderline(inputValue);
+    document.getElementById("outputStrikethrough").innerHTML = applyStrikethrough(inputValue);
+    document.getElementById("outputHighlight").innerHTML = applyHighlight(inputValue);
+    document.getElementById("outputCode").innerHTML = applyCode(inputValue);
+    document.getElementById("outputSuperscript").innerHTML = applySuperscript(inputValue);
+    document.getElementById("outputSubscript").innerHTML = applySubscript(inputValue);
 });
