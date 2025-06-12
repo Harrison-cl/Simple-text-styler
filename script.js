@@ -68,11 +68,20 @@ inputText.addEventListener("input", () => {
     document.getElementById("outputCode").innerHTML = applyCode(inputValue);
     document.getElementById("outputSuperscript").innerHTML = applySuperscript(inputValue);
     document.getElementById("outputSubscript").innerHTML = applySubscript(inputValue);
-    // --- Update Markdown Outputs (NEW LINES) ---
-    // Use textContent for Markdown so the syntax (**, *, ~~) is displayed literally
-    document.getElementById("outputBoldMarkdown").textContent = applyBoldMarkdown(inputValue);
-    document.getElementById("outputItalicMarkdown").textContent = applyItalicMarkdown(inputValue);
-    document.getElementById("outputStrikethroughMarkdown").textContent = applyStrikethroughMarkdown(inputValue);
+    // --- Update Markdown Outputs ---
+    const outputBoldMarkdown = document.getElementById("outputBoldMarkdown");
+    const outputItalicMarkdown = document.getElementById("outputItalicMarkdown");
+    const outputStrikethroughMarkdown = document.getElementById("outputStrikethroughMarkdown");
+
+    if (inputValue) { // Only apply markdown if there's actual input
+        outputBoldMarkdown.textContent = applyBoldMarkdown(inputValue);
+        outputItalicMarkdown.textContent = applyItalicMarkdown(inputValue);
+        outputStrikethroughMarkdown.textContent = applyStrikethroughMarkdown(inputValue);
+    } else { // Otherwise, clear the markdown outputs
+        outputBoldMarkdown.textContent = "";
+        outputItalicMarkdown.textContent = "";
+        outputStrikethroughMarkdown.textContent = "";
+    }
 });
 
 // Function to copy text to clipboard
