@@ -11,52 +11,63 @@
     <div id="app">
         <h1>Simple Text Styler</h1>
         <textarea id="inputText" placeholder="Type your text here..."></textarea>
-        <div id="output">
-            <h2>Styled Text</h2>
              <div class="output-section">
-        <h2>Formatted Outputs</h2>
+        <h2>Styled Text</h2>
 
         <div class="output-item">
             <label for="outputBold">Bold:</label>
             <div id="outputBold" class="output-display"></div>
+            <div id="outputBoldMarkdown" class="output-markdown"></div>
+            <button class="copy-button" data-target="outputBold">Copy Bold</button>
+            <button class="copy-button" data-target="outputBoldMarkdown">Copy Bold (Markdown)</button>
         </div>
 
         <div class="output-item">
             <label for="outputItalic">Italic:</label>
             <div id="outputItalic" class="output-display"></div>
+            <div id="outputItalicMarkdown" class="output-markdown"></div>
+            <button class="copy-button" data-target="outputItalic">Copy Italic</button>
+            <button class="copy-button" data-target="outputItalicMarkdown">Copy Italic (Markdown)</button>
+        </div>
+
+         <div class="output-item">
+            <label for="outputStrikethrough">Strikethrough:</label>
+            <div id="outputStrikethrough" class="output-display"></div>
+            <div id="outputStrikethroughMarkdown" class="output-markdown"></div>
+            <button class="copy-button" data-target="outputStrikethrough">Copy Strikethrough</button>
+            <button class="copy-button" data-target="outputStrikethroughMarkdown">Copy Strikethrough (Markdown)</button>
         </div>
         
         <div class="output-item">
             <label for="outputUnderline">Underline:</label>
             <div id="outputUnderline" class="output-display"></div>
+            <button class="copy-button" data-target="outputUnderline">Copy Underline</button>
         </div>
-
-        <div class="output-item">
-            <label for="outputStrikethrough">Strikethrough:</label>
-            <div id="outputStrikethrough" class="output-display"></div>
-        </div>
-
+       
         <div class="output-item">
             <label for="outputHighlight">Highlight:</label>
             <div id="outputHighlight" class="output-display"></div>
+            <button class="copy-button" data-target="outputHighlight">Copy Highlight</button>
         </div>
 
         <div class="output-item">
             <label for="outputCode">Code:</label>
             <div id="outputCode" class="output-display"></div>
+            <button class="copy-button" data-target="outputCode">Copy Code</button>
         </div>
 
         <div class="output-item">
             <label for="outputSuperscript">Superscript:</label>
             <div id="outputSuperscript" class="output-display"></div>
+            <button class="copy-button" data-target="outputSuperscript">Copy Superscript</button>
         </div>
 
         <div class="output-item">
             <label for="outputSubscript">Subscript:</label>
             <div id="outputSubscript" class="output-display"></div>
+            <button class="copy-button" data-target="outputSubscript">Copy Subscript</button>
         </div>
         </div>
-    </div>
     <script src="script.js"></script>
 </body>
 <footer>
